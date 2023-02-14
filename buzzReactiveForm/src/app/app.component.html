@@ -1,0 +1,173 @@
+<!-- <div class="container">
+    <form [formGroup]="reactiveForm" class="form" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="">First Name</label>
+            <input type="text" class="form-control" name="firstName" formControlName="firstName">
+        </div>
+        <div class="form-group">
+            Last Name <input type="text" name="lastName" formControlName="lastName">
+        </div>
+        <div class="form-group">
+            Email <input type="email" name="email" formControlName="email">
+        </div>
+        <div class="form-group">
+            Phone <input type="number" name="phone" formControlName="phone">
+        </div>
+        <div class="form-group">
+            Company <input type="text" name="company" formControlName="company">
+        </div>
+        <div class="form-group">
+            Password <input type="password" name="password" formControlName="password">
+        </div>
+        <div class="form-group">
+            Confirm Password <input type="password" name="password" formControlName="password">
+        </div>
+        <div>
+            <button>Register</button>&nbsp;&nbsp;
+            <button>Cancel</button>
+        </div>
+    </form>
+</div> -->
+
+<div class="container">
+  <form [formGroup]="registerForm">
+    <div class="row g-3 align-items-center m-1">
+      <div class="col-auto">
+        <label class="col-form-label">First Name</label>
+      </div>
+      <div class="col-auto">
+        <input type="text" class="form-control" formControlName="firstName" />
+      </div>
+    </div>
+    <div class="row g-3 align-items-center m-1">
+      <div class="col-auto">
+        <label class="col-form-label">Last Name</label>
+      </div>
+      <div class="col-auto">
+        <input type="text" class="form-control" formControlName="lastName" />
+      </div>
+    </div>
+    <div class="row g-3 align-items-center m-1">
+      <div class="col-auto">
+        <label class="col-form-label">Email</label>
+      </div>
+      <div class="col-auto">
+        <input type="email" class="form-control" formControlName="email" />
+      </div>
+    </div>
+    <div class="row g-3 align-items-center m-1">
+      <div class="col-auto">
+        <label class="col-form-label">Phone</label>
+      </div>
+      <div class="col-auto">
+        <input type="number" class="form-control" formControlName="phone" />
+      </div>
+    </div>
+    <div class="row g-3 align-items-center m-1">
+      <div class="col-auto">
+        <label class="col-form-label">Company</label>
+      </div>
+      <div class="col-auto">
+        <input type="text" class="form-control" formControlName="company" />
+      </div>
+    </div>
+    <div class="row g-3 align-items-center m-1">
+      <div class="col-auto">
+        <label class="col-form-label">Gender</label>
+      </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="radio"
+          name="flexRadioDefault"
+          id="flexRadioDefault1"
+        />
+        <label class="form-check-label" for="flexRadioDefault1"> Male </label>
+      </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="radio"
+          name="flexRadioDefault"
+          id="flexRadioDefault2"
+        />
+        <label class="form-check-label" for="flexRadioDefault2"> Female </label>
+      </div>
+    </div>
+    <div class="row g-3 align-items-center m-1">
+      <div class="col-auto">
+        <label class="col-form-label">DOB</label>
+      </div>
+      <div class="col-auto">
+        <input type="date" class="form-control" formControlName="dob" />
+      </div>
+    </div>
+    <div class="row g-3 align-items-center m-1">
+      <div class="col-auto">
+        <label class="col-form-label">Password</label>
+      </div>
+      <div class="col-auto">
+        <input
+          type="password"
+          class="form-control"
+          formControlName="password"
+        />
+      </div>
+    </div>
+    <div class="row g-3 align-items-center m-1">
+      <div class="col-auto">
+        <label class="col-form-label">Confirm Password</label>
+      </div>
+      <div class="col-auto">
+        <input
+          type="password"
+          class="form-control"
+          formControlName="confirm_password"
+        />
+      </div>
+    </div>
+
+    <div [align]="'center'">
+      <button class="btn btn-secondary">Cancel</button> &nbsp;
+      <button class="btn btn-success" (click)="onRegister(registerForm?.value)">
+        {{actionBTN}}
+      </button>
+    </div>
+  </form>
+</div>
+
+<!--  Tabular Data -->
+
+<div class="card text-center m-5">
+  <div class="card-header">All Student Records</div>
+</div>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>SR NO</th>
+      <th>First Name</th>
+      <th>last Name</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Company</th>
+      <th>DOB</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of tabularRecord; let i = index">
+      <td>{{ i }}</td>
+      <td [innerHTML]="user?.firstName"></td>
+      <td [innerHTML]="user?.lastName"></td>
+      <td [innerHTML]="user?.email"></td>
+      <td [innerHTML]="user?.phone"></td>
+      <td [innerHTML]="user?.company"></td>
+      <td [innerHTML]="user?.dob"></td>
+      <td>
+        <button class="btn btn-primary" (click)="onEdit(user.id,user)">Edit</button>&nbsp;
+        <button class="btn btn-danger" (click)="onDelete(user.id)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

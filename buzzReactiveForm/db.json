@@ -1,0 +1,32 @@
+{
+  "posts": [
+    {
+      "firstName": "uttam",
+      "lastName": "shendage",
+      "email": "tets@gmail.com",
+      "phone": 789456212,
+      "company": "test Company",
+      "gender": "",
+      "dob": "2023-05-05",
+      "password": "789456",
+      "confirm_password": "789456",
+      "id": 6
+    },
+    {
+      "firstName": "kapil",
+      "lastName": "Jundale",
+      "email": "test1@gmail.com",
+      "phone": 75285498895,
+      "company": "abc llp pune",
+      "gender": "",
+      "dob": "2023-02-18",
+      "password": "fghjfghj",
+      "confirm_password": "gvbnjfghj",
+      "id": 7
+    }
+  ],
+  "comments": [],
+  "profile": {
+    "name": "typicode"
+  }
+}
